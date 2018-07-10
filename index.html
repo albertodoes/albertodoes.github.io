@@ -57,7 +57,7 @@ d3.json("us.json", function(error, us) {
   if (error) throw error;
 
   g.selectAll("path")
-      .data(topojson.feature(us, us.objects.counties).features)
+      .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
       .attr("d", path)
       .attr("class", "feature")
