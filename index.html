@@ -73,13 +73,14 @@ function clicked(d) {
   if (active.node() === this) return reset();
   active.classed("active", false);
   active = d3.select(this).classed("active", true);
-  
-  g.selectAll("path")
+    d3.json("us.json", function(error, us) {
+    if (error) throw error;
+        g.selectAll("path")
       .data(topojson.feature(us, us.objects.counties).features)
-    .enter().append("path")
-      .attr("d", path)
-      .attr("class", "feature")
-      .on("click", clicked);
+        .enter().append("path")
+            .attr("d", path)
+            .attr("class", "feature")
+            .on("click", clicked);
   
   var bounds = path.bounds(d),
       dx = bounds[1][0] - bounds[0][0],
