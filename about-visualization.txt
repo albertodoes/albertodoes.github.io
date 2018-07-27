@@ -1,0 +1,53 @@
+-Structure/Scenes
+
+My visualization follows a Martini-Glass style narrative structure where users navigate a text narrative presented above a chart of the data through the use of navigational buttons.
+
+The scenes are organized so that during the author-driven part of the visualization, users can
+only minimally explore the data through mousing over the chart to show values of the data.
+
+First, summer is shown as it is one of the more visually striking trends, then the other 
+trends are presented in chronological order. 
+
+When the user reaches the end of the scenes, they are taken to the reader-driven part
+of the visualization. From here they can no longer navigate the scenes, but are given the option to explore other similar Google trend lines and to show or hide parameters. 
+These are highlighted with a red rectangle temporarily to let the user know they are interactive elements.
+
+
+-Annotations
+
+During the the author-driven part of the narrative structure, annotations are cleared 
+between scenes so that the user can focus what the narration at that scene is trying to present.
+
+What the annotation represents is shown on the right side in the same color as the
+annotation itself.
+
+During the reader-driven part, users are free to show or hide multiple annotations at a time.
+
+
+-Parameters
+
+Parameters include the current state of the visualization.
+Whether a trend line is active or not. 
+Whether a trend annotation is active or not.
+Whether a trend line/annotation option is visible and whether it is clickable.
+Whether a tooltip is visible for a certain trend and whether the mouseover line and date are visible.
+
+
+-Triggers
+
+Clicking "next" or "back" buttons causes the current scene parameter to increment or decrement accordingly
+which causes only the desireable annotation and annotation option to become active and visiblible.
+During the reader-driven part, all trend line/annotation options are unclickable.
+If the current scene == 0, hide the back button.
+If the current scene == last scene, hide both buttons.
+
+When the user reaches the final scene, all of the trend line/annotation options become visible and clickable.
+The user is then able to click trend line options and trend annotation options which toggle whether the trend line or annotation are active. This also affects whether the tooltip for this trend will be displayed.	
+
+When the mouse is out of the range of the chart, the tooltip, line, and date become hidden.
+
+
+-About the data
+
+Data was collected from https://trends.google.com/trends and corresponds the amount of searches about different "topics" as opposed to "search terms".
+Popularity value is a relative measure, so that something with 50 popularity has been searched half as much as something with 100, but these do not correspond to an absolute value.
