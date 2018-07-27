@@ -364,11 +364,11 @@ d3.text('trends.csv', function(error, raw){
             d3.selectAll("[id='" + d.id + "']").style("opacity", newOp);
             d3.selectAll("[id='text" + d.id + "']").style("stroke", "newCol")
             console.log(d3.selectAll('.mouse-per-line'));
-            d3.selectAll('.mouse-per-line')
-                .style("opacity", function(g) { if(g.id == d.id){
-                    return newOp;
-                }
-             });
+            d3.selectAll('.mouse-per-line').selectAll("[id='" + d.id + "']").style("opacity", newOp)
+                // .style("opacity", function(g) { if(g.id == d.id){
+                //     return newOp;
+                // }
+            //  });
             })
         .on("mouseover", function(d) {
             d3.selectAll("[id='text" + d.id + "']").style("stroke", "goldenrod");})
@@ -419,6 +419,7 @@ var mousePerLine = mouseG.selectAll('.mouse-per-line')
       .enter()
       .append("g")
       .attr("class", "mouse-per-line")
+      .attr("id", function(d){return d.id})
       .style("opacity", function(d) { if(d.id == "Global warming"){ return 1;}
                                             else { return 0;} });;;
 
